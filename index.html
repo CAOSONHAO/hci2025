@@ -1,322 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Challenge</title>
+    <title>Trang Web Cá Nhân</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e9f0f5;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            background-image: url('https://noithatbinhminh.com.vn/wp-content/uploads/2022/12/background-xanh-duong-17.jpg');
+            color: #333;
+            background-size:cover;
         }
 
-        /* Giao diện đầu tiên */
-        #main-container {
-            display: block;
-        }
-            h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: left;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.card h3 span {
-    background-color: #ccc;
-    color: #fff;
-    border-radius: 4px;
-    padding: 3px 8px;
-    margin-left: 10px;
-    font-size: 14px;
-}
-
-.card p {
-    color: #555;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.card button {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-    font-size: 14px;
-    transition: background-color 0.2s;
-}
-
-.card button:hover {
-    background-color: #0056b3;
-}
-
-.card button:nth-child(2) {
-    background-color: #f1f1f1;
-    color: #333;
-}
-
-.card button:nth-child(2):hover {
-    background-color: #ddd;
-}
-        /* Giao diện thứ hai */
-        #form-container, #edit-container {
-            display: none;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        header {
+            background-color: #1a5ea6;
+            color: #fff;
             padding: 20px;
-            max-width: 600px;
-            margin: auto;
+            text-align: center;
+            position: relative;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
 
-        input[type="text"], textarea, select {
+        nav {
+            background-color: #0b3687e3;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 100%;
-        }
-
-        .open-ide-btn, .update-btn {
-            background-color: #002b45;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
             text-align: center;
         }
 
-        .open-ide-btn:hover, .update-btn:hover {
-            background-color: #001f33;
-        }
-
-        /* Thêm vào CSS để tạo kiểu cho nút mũi tên quay lại */
-        button.back-to-main-btn, button.back-to-form-btn {
-            background-color: transparent;
-            color: #007bff;
-            border: none;
-            font-size: 18px; /* Cỡ chữ lớn để mũi tên rõ ràng */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
             cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #5aa0c0;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #1a5ea6;
+            color: #fff;
+            text-align: center;
             padding: 10px;
-            display: flex;
-            align-items: center;
+            margin-top: 20px;
         }
 
-        button.back-to-main-btn:hover, button.back-to-form-btn:hover {
-            color: #0056b3;
+        footer a {
+            color: #fff;
+            text-decoration: none;
         }
 
-        button.back-to-main-btn:focus, button.back-to-form-btn:focus {
-            outline: none;
+        footer a:hover {
+            text-decoration: underline;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .form-group label {
-            font-size: 14px;
+        .project-item {
+            background-color: #f0f4f8;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid #314733;
+        }
+        
+        #contact {
+            text-align: left;
+            margin-left: 50px; /* Khoảng cách lề trái */
+        }
+        .progress-container {
+            width: 80%;
+            background-color: #f3f3f3;
+            border-radius: 20px;
+            margin: 20px auto;
+            height: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 100%;
+            width: 15%; /* Giá trị phần trăm cố định */
+            background-color: #4caf50;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
             font-weight: bold;
         }
-
-        .test-case {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .test-case input {
-            flex: 1;
-        }
+        main {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
     </style>
+    
 </head>
 <body>
-    <h1>New Unit Test Custom Challenge</h1>
-    <div class="container" id="main-container">
-        <div class="card">
-            <h3>JavaScript <span>Mocha</span></h3>
-            <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
-        <div class="card">
-            <h3>TypeScript <span>Mocha</span></h3>
-            <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
-        <div class="card">
-            <h3>Python <span>pytest</span></h3>
-            <p>pytest is the most popular and fully-featured Python testing framework.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
-        <div class="card">
-            <h3>PHP <span>PHPUnit</span></h3>
-            <p>PHPUnit is a programmer-oriented testing framework for PHP.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
-        <div class="card">
-            <h3>Java <span>JUnit</span></h3>
-            <p>JUnit is a popular unit-testing framework in the Java ecosystem.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
-        <div class="card">
-            <h3>Kotlin <span>JUnit</span></h3>
-            <p>JUnit is a popular unit-testing framework in the Kotlin ecosystem.</p>
-            <button class="continue-btn">Continue</button>
-            <button>Guide</button>
-        </div>
+
+<header>
+    <h1>My Website</h1>
+</header>
+
+<nav>
+    <a onclick="showTab('about')">About</a>
+    <a onclick="showTab('projects')">Projects</a>
+    <a onclick="showTab('contact')">Contact</a>
+    <a onclick="showTab('resul')"> Result</a>
+
+</nav>
+
+<div class="content">
+    <div id="about" class="tab-content active">
+        <h2>About</h2>
+        <p>Welcome to my website! I’m glad you’re here and hope you find valuable insights. Thank you for visiting!
+        </p>
     </div>
 
-    <!-- Giao diện thứ hai -->
-    <div id="form-container">
-        <h1>New unit test custom challenge</h1>
-        <form>
-            <input type="text" placeholder="Demo">
-            <div>
-                <label for="difficulty">Difficulty:</label>
-                <select id="difficulty">
-                    <option>Easy</option>
-                    <option>Medium</option>
-                    <option>Hard</option>
-                </select>
+    <div id="projects" class="tab-content">
+        <h2>Projects</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px); background-color: rgba(172, 203, 233, 0.828)">
+                <h3><a href="https://caosonhao.github.io/lab1/">Lab1</a></h3>
             </div>
-            <input type="text" placeholder="Optional short description about this challenge...">
-            <button type="button" class="open-ide-btn">Click here to open the Java (JUnit) IDE and edit your code →</button>
-        </form>
-        <!-- Dấu mũi tên quay lại -->
-        <button type="button" class="back-to-main-btn">&#8592; Back</button>
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px); background-color: rgba(172, 203, 233, 0.828);">
+                <h3><a href="https://caosonhao.github.io/lab2/">Lab2</a></h3>
+            </div>
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px);background-color: rgba(172, 203, 233, 0.828)">
+                <h3><a href="https://caosonhao.github.io/lab3/">Lab3</a></h3>
+            </div>
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px);background-color: rgba(172, 203, 233, 0.828)">
+                <h3><a href="https://caosonhao.github.io/lab4/">Lab4</a></h3>
+            </div>
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px);background-color: rgba(172, 203, 233, 0.828)">
+                <h3><a href="https://caosonhao.github.io/lab5/">Lab5</a></h3>
+            </div>
+            <div class="card" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px);background-color: rgba(172, 203, 233, 0.828)">
+                <h3><a href="https://caosonhao.github.io/lab6/">Lab6</a></h3>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="contact" class="tab-content">
+        <h2>Contact</h2>
+        <p>Name: Cao Sơn Hào</p>
+        <p>MSSV: 19130064</p>
+        <p>Class: DH19DTB</p>
     </div>
 
-    <!-- Giao diện thứ ba -->
-    <div id="edit-container">
-        <h1>Edit custom challenge</h1>
-        <form>
-            <input type="text" value="DSA ET Opt7 01">
-            <div>
-                <label for="difficulty">Difficulty:</label>
-                <select id="difficulty">
-                    <option>Easy</option>
-                    <option>Medium</option>
-                    <option>Hard</option>
-                </select>
+    <div id="resul" class="tab-content">
+        <main>
+            <h1 style="text-align: center; color: #4caf50;">Kết Quả Cá Nhân</h1>
+            <section style="margin: 20px 0;">
+                <h2 style="color: #2f4f4f;">Thành Tựu Nổi Bật</h2>
+                <ul style="list-style: square; padding-left: 20px;">
+                    <li>Đóng góp vào phát triển giao diện nhóm, đảm bảo tính nhất quán và thân thiện với người dùng.</li>
+                    <li>Thành thạo sử dụng CSS và JavaScript để thiết kế hiệu ứng đẹp mắt, nâng cao trải nghiệm người dùng.</li>
+                    <li>Hoàn thiện các module của dự án đúng thời hạn với chất lượng cao.</li>
+                </ul>
+            </section>
+            <section style="margin: 20px 0;">
+                <h2 style="color: #2f4f4f;">Dự Án Liên Quan</h2>
+                <h3 style="color: #314733;">Liên kết chính</h3>
+                <ul style="padding-left: 20px;">
+                    <li><a href="https://tl-1279.github.io/dulich/hotro.html" style="color: #4caf50; text-decoration: none;">Trang hỗ trợ khách hàng</a></li>
+                </ul>
+                <h3 style="color: #314733;">Trang web khác</h3>
+                <ul style="padding-left: 20px;">
+                    <li><a href="https://tl-1279.github.io/dulich/goidulich.html" style="color: #4caf50; text-decoration: none;">Danh sách gói du lịch</a></li>
+                    <li><a href="https://tl-1279.github.io/dulich/vungtau.html" style="color: #4caf50; text-decoration: none;">Giới thiệu Vũng Tàu</a></li>
+                </ul>
+            </section>
+            <section style="margin: 20px 0;">
+                <h2 style="color: #2f4f4f;">Tự Đánh Giá</h2>
+                <p>Tôi tự hào đã hoàn thành <strong style="color: #e87e38;">23.12%</strong> công việc của dự án nhóm, bao gồm các phần việc chính như giao diện, chức năng và kiểm tra.</p>
+            </section>
+            <div class="progress-container" style="background-color: #e0e0e0; border-radius: 30px; width: 90%; margin: 20px auto; height: 40px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <div class="progress-bar" style="height: 100%; width: 23.12%; background-color: #fa8022; border-radius: 30px; text-align: center; line-height: 40px; color: white; font-weight: bold;">23.12%</div>
             </div>
-            <textarea rows="4">Write a program to count the number of elements as odd numbers in the array.
-                Example: Array A = {12, 31, 25, 17, 40, 10, 29}
-                => Number of elements as odd number in array A is: 4</textarea>
-            
-            <!-- Thêm phần Input, Output và Test Cases -->
-            <div class="section">
-                <div class="form-group">
-                    <label>Input type</label>
-                    <select>
-                        <option>Array of integers</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Output type</label>
-                    <select>
-                        <option>Integer</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Required test cases</label>
-                    <div class="test-case">
-                        <input type="text" placeholder="Input 1" value="12,31,25,17,40,10,29">
-                        <input type="text" placeholder="Expected Output 1" value="4">
-                    </div>
-                    <div class="test-case">
-                        <input type="text" placeholder="Input 2" value="1,2,3,4,5,6,7,8,9,10">
-                        <input type="text" placeholder="Expected Output 2" value="5">
-                    </div>
-                    <div class="test-case">
-                        <input type="text" placeholder="Input 3" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20">
-                        <input type="text" placeholder="Expected Output 3" value="10">
-                    </div>
-                    <div class="test-case">
-                        <input type="text" placeholder="Input 4" value="0">
-                        <input type="text" placeholder="Expected Output 4" value="0">
-                    </div>
-                    <div class="test-case">
-                        <input type="text" placeholder="Input 5" value="1">
-                        <input type="text" placeholder="Expected Output 5" value="1">
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="update-btn">Update custom challenge</button>
-        </form>
-        <!-- Dấu mũi tên quay lại -->
-        <button type="button" class="back-to-form-btn">&#8592; Back</button>
+        </main>
     </div>
+    
 
-    <script>
-        // Chuyển sang form tạo challenge
-        document.querySelectorAll('.continue-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.getElementById('main-container').style.display = 'none';
-                document.getElementById('form-container').style.display = 'block';
-            });
-        });
+<footer>
+    <p>&copy; 2024 Cao Sơn Hào</p>
+</footer>
 
-        // Mở IDE chỉnh sửa
-        document.querySelector('.open-ide-btn').addEventListener('click', () => {
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('edit-container').style.display = 'block';
-        });
+<script>
+    function showTab(tabId) {
+        var tabs = document.getElementsByClassName('tab-content');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('active');
+        }
+        document.getElementById(tabId).classList.add('active');
+    }
 
-        // Quay lại giao diện chính từ form tạo challenge
-        document.querySelector('.back-to-main-btn').addEventListener('click', () => {
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('main-container').style.display = 'block';
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        showTab('about');
+    });
+</script>
 
-        // Quay lại form tạo challenge từ giao diện chỉnh sửa
-        document.querySelector('.back-to-form-btn').addEventListener('click', () => {
-            document.getElementById('edit-container').style.display = 'none';
-            document.getElementById('form-container').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
